@@ -1,0 +1,124 @@
+.full-width {
+  width: 100%;
+}
+
+.shipping-card {
+  min-width: 120px;
+  margin: auto;
+}
+
+.mat-radio-button {
+  display: block;
+  margin: 5px 0;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+}
+
+.col {
+  flex: 1;
+  margin-right: 20px;
+}
+
+.col:last-child {
+  margin-right: 0;
+}
+
+
+.mat-card-content,
+.mat-card-header .mat-card-title,
+.mat-card-subtitle {
+  font-size: 18px;
+}
+
+
+.app-responsive-title {
+  font-family: -webkit-body;
+  text-align: center;
+  text-transform: uppercase;
+  display: inherit;
+  text-decoration: overline;
+  color: cadetblue;
+}
+
+.final-link {
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.mat-card {
+  padding: 0px !important;
+}
+
+
+@media (max-width: 575.98px) {
+  .form-responsive-margin {
+    margin: 0 5%;
+  }
+
+  .app-responsive-title {
+    font-size: x-large;
+  }
+
+  .final-link {
+    font-size: large;
+  }
+}
+
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .form-responsive-margin {
+    margin: 0 7%;
+  }
+
+  .app-responsive-title {
+    font-size: xx-large;
+  }
+
+  .final-link {
+    font-size: large;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .form-responsive-margin {
+    margin: 0 9%;
+  }
+
+  .app-responsive-title {
+    font-size: xx-large;
+  }
+
+  .final-link {
+    font-size: x-large;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  .form-responsive-margin {
+    margin: 0 12%;
+  }
+
+  .app-responsive-title {
+    font-size: xx-large;
+  }
+
+  .final-link {
+    font-size: x-large;
+  }
+}
+
+@media (min-width: 1200px) {
+  .form-responsive-margin {
+    margin: 0 15%;
+  }
+
+  .app-responsive-title {
+    font-size: xxx-large;
+  }
+
+  .final-link {
+    font-size: xx-large;
+  }
+}

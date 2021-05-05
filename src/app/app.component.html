@@ -1,0 +1,155 @@
+<mat-card class="shipping-card">
+  <label class="app-responsive-title">Covid Twitter Help App</label>
+  <form [formGroup]="form" (ngSubmit)="submit()" class="form-responsive-margin">
+    <div class="form-outline">
+
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col"><label style="text-transform: uppercase;font-size: medium; color: brown;">*Name of the
+                city: </label>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <div class="custom-wrapper-example" matAutocompleteOrigin #origin="matAutocompleteOrigin">
+                <input matInput formControlName="city" [matAutocomplete]="auto" [matAutocompleteConnectedTo]="origin"
+                  class="form-control" placeholder="Choose/Type City Name">
+              </div>
+              <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+                <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+                  {{option}}
+                </mat-option>
+              </mat-autocomplete>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col"><label style=" text-transform: uppercase;font-size: medium; color: brown;">Show only:</label>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <div style="display: grid;">
+              <label formArrayName="verifiedTweets"
+                *ngFor="let order of form.get('verifiedTweets')['controls']; let i = index">
+                <input type="checkbox" [formControlName]="i">
+                {{verifiedTweets[i].name}}
+              </label>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col"><label style="text-transform: uppercase;font-size: medium; color: brown;">Search
+              For:</label></th>
+          <th scope="col"><label style="text-transform: uppercase;font-size: medium; color: brown;">Medicine:</label>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <div style="display: grid;">
+              <label formArrayName="orders" *ngFor="let order of form.get('orders')['controls']; let i = index">
+                <input type="checkbox" [formControlName]="i">
+                {{ordersData[i].name}}
+              </label>
+            </div>
+            <div>
+              <input type="text" formControlName="otherSearch" class="form-control" placeholder="other">
+              <p style="opacity: 0.4;">Try like - 'ventilator OR ICU' </p>
+            </div>
+          </td>
+          <td>
+            <div style="display: grid;">
+              <label formArrayName="medicine" *ngFor="let order of form.get('medicine')['controls']; let i = index">
+                <input type="checkbox" [formControlName]="i">
+                {{medicine[i].name}}
+              </label>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col"><label style="text-transform: uppercase;font-size: medium; color: brown;">Tweets should
+              <strong style="color: black;">Contain</strong>
+              words:</label></th>
+          <th scope="col"><label style=" text-transform: uppercase;font-size: medium; color: brown;">Tweets should
+              <strong style=" color: black;">NOT</strong>
+              contain words:</label></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <div style="display: grid;">
+              <label formArrayName="inclusiveSearch"
+                *ngFor="let order of form.get('inclusiveSearch')['controls']; let i = index">
+                <input type="checkbox" [formControlName]="i">
+                {{inclusiveSearch[i].name}}
+              </label>
+            </div>
+          </td>
+          <td>
+            <div style="display: grid;">
+              <label formArrayName="exclusiveSearch"
+                *ngFor="let order of form.get('exclusiveSearch')['controls']; let i = index">
+                <input type="checkbox" [formControlName]="i">
+                {{exclusiveSearch[i].name}}
+              </label>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+
+    <table class="table">
+      <tbody>
+        <tr>
+          <td><button class="btn btn-success" style="margin-right: 10px;">Generate Link</button>
+          </td>
+          <td>
+            <a *ngIf="finalLink!=null && finalLink!=undefined" href="{{finalLink}}" target="_blank"
+              class="final-link">Click here to See Results on
+              Twitter.</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+  </form>
+
+
+  <div>
+    <br><br>
+    <p style="font-size: 9px;text-align: center;">*Disclaimer:This website only generates leads from twitter and does
+      not
+      contain any data
+      of it's own. Website
+      makes
+      content based
+      search request on twitter's top search bar on behalf of user. Website is not responsible
+      for any misleading/wrong information, post on the twitter. </p>
+  </div>
+</mat-card>
